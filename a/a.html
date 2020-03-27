@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>a</title>
+    </head>
+    <body>
+        <form method="post">
+            <input type="text" name="a">
+            <input type="text" name="a">
+            <input type="text" name="a">
+            <input type="text" name="a">
+            <input type="text" name="a">
+            <input type="submit" value="send">
+        </form>
+        <table>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>zone</th>
+                <th>skill</th>
+                <th>job</th>
+            </tr>
+            {% for each in data %}
+                <tr>
+                    {% for i in each %}
+                        <td>{{ i }}</td>
+                    {% end %}
+                </tr>
+            {% end %}
+        </table>
+    </body>
+</html>

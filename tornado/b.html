@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>b</title>
+        <style>
+            body{
+                background:silver;
+            }
+            table{
+                margin: 6px 0px;
+                border-collapse:collapse;
+            }
+            tr,th,td{
+                border:1px dashed black;
+                padding: 0px 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post">
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="passwd" placeholder="passwd">
+            <input type="text" name="mobile" placeholder="mobile">
+            <input type="submit" value="Commit">
+        </form>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>passwd</th>
+                <th>age</th>
+                <th>mobile</th>
+            </tr>
+            {% for d in data %}
+                <tr>
+                    {% for i in d[0:5] %}
+                        <td>{{ i }}</td>
+                    {% end %}
+                </tr>
+            {% end %}
+        </table>
+        {{ houses }}
+    </body>
+</html>

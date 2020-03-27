@@ -1,0 +1,92 @@
+insert into it_user_info(ui_name, ui_passwd, ui_age, ui_mobile)
+    values('zhangsan', '123', '20', '13723456786'),
+        ('lisi', '456', '25', '13723456782'),
+        ('wangwu', '789', '22', '13723456785'),
+        ('zhaoliu', '012', '20', '13723456780');
+
+insert into it_house_info(hi_user_id, hi_name, hi_address, hi_price)
+    values('1', 'zs-house', 'usa', '1200'),
+        ('2', 'ls-house', 'china', '1300'),
+        ('3', 'ww-house', 'italy', '900'),
+        ('4', 'zl-house', 'franch', '1800');
+
+insert into it_house_image(hi_house_id, hi_url)
+    values('1', '/home/a.jpg'),
+        ('2', '/home/b.jpg'),
+        ('3', '/home/c.jpg'),
+        ('4', '/home/d.jpg');
+
+# distinct
+    select distinct ui_age from it_user_info;
+
+# in
+    select * from it_user_info where ui_age in (20, 23);
+
+# count
+    select count(*) count from it_user_info;
+
+# between
+    select * from it_user_info where ui_age between 20 and 23
+        order by ui_age desc;
+
+# limit
+    select * from it_user_info where ui_age between 20 and 23
+        order by ui_age desc limit 2;
+
+# limit 2,1
+    select * from it_user_info where ui_age between 20 and 23
+        order by ui_age desc limit 2,1;
+
+# group by
+    select ui_age, count(ui_age) from it_user_info group by ui_age;
+
+# 在group by前添加其他值需运算,mysql80不用
+    select max(ui_name), ui_age, count(ui_age) from
+        it_user_info group by ui_age;
+
+# alter table
+    alter table it_user_info add ui_area_id varchar(10) 
+        not null default 'a' comment '区域ID';
+
+# update/delete 先写 where 语句以防全改，最好先用where查询
+    select * from it_user_info where ui_user_id=1;
+    update ... where ui_user_id=2;
+    update it_user_info set ui_area_id=1 where ui_user_id=2;
+
+# group by
+    select ui_area_id, ui_age, count(*) from it_user_info 
+        group by ui_area_id, ui_age;
+    select ui_area_id, max(ui_age), count(*) from it_user_info 
+        group by ui_area_id;
+
+# inner join/outer join/left join/right join/join
+    select * from it_user_info a inner join it_house_info b on 
+        a.ui_user_id=b.hi_user_id left join it_house_image c on
+        b.hi_house_id=c.hi_house_id;
+
+# 注入攻击
+    execute(sql, )
+    name = a / a' or1=1 or ('1'='1
+    passwd = b / abc') or '1'='1
+    sql = "select count(*) from it_user_info where ui_name='%s' and
+        ui_passwd='%s'" % (name, passwd)
+    sql = "select count(*) from it_user_info where ui_name='a' or
+        1=1 or ('1'='1' and ui_passwd='abc') or '1'='1'"
+
+# 涉及用户输入的应使用变量绑定
+    execute(query, *parameters, **kwparameters)
+    db.execute("insert into houses(title, position, price) values
+        (%s, %s, %s)", ("独立装修小别墅", "usa", 200))
+    db.execute("insert into houses(title, position, price) values
+        (%(title)s, %(position)s, %(price)s)", (title="独立装修小别墅",
+        position="usa", price=200))
+    输入内容变为ui_name='`a' or ('1'='1`'  `阻断内部'与外部'的相互作用
+
+# 插入后获取自曾id  cursor.lastrowid
+    sql='insert into userinfo(name,password) values("xxx","xxx");'
+    rows=cursor.execute(sql)
+    conn.commit()
+    print(cursor.lastrowid) #等于插入之前表里自增id的值+1
+    
+
+

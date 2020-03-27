@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>c</title>
+        <script src="{{ static_url('jquery3.js') }}"></script>
+    </head>
+    <body>
+        <script>
+            $(function(){
+                var ws = new WebSocket('ws://localhost:8001/b/')
+                var wd = document.getElementById('show')
+                ws.onmessage = function (e) {
+                    $('#show').append(e.data)
+                    $('#show').append('<br>')
+                    wd.scrollTop = wd.scrollHeight
+                }
+                $('#btn').click(function() {
+                    if($('#nm').val()!=''&&$('#ctt').val()!=''){
+                        ws.send($('#nm').val()+' : '+$('#ctt').val())
+                    }else{
+                        alert('姓名和消息不能为空')
+                    }
+                })
+            })
+        </script>
+        <h4>留言板，实时聊天</h4>
+        <input type="text" id="nm" placeholder="输入姓名"
+            style="width: 5em">
+        <input type="text" id="ctt" placeholder="输入消息">
+        <button type="submit" id="btn">Send</button>
+        <div id='show' style="height: 18em;overflow-x: auto;
+            word-wrap: break-word;margin: 8px 0px;border: 
+            1px solid black;"></div>
+    </body>
+</html>

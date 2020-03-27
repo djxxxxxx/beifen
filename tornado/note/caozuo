@@ -1,0 +1,15 @@
+# 安全cookie
+    >>> import base64, uuid
+    >>> base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes)
+    LokoLorDRuO0guuL6krvwHdI14qhFkshm/BgtOG82fA=
+
+# 获取和设置
+    set_secure_cookie(name,value,expires_days=30)
+    设置一个带签名和时间戳的cookie，防止cookie被伪造
+
+    get_secure_cookie(name,value=None,max_age_days=31)
+    如果cookie存在且验证通过，返回cookie的值，否则返回None。max_age_days不同于
+    expires_days，expires_days是设置浏览器中cookie的有效期，而max。。是过滤cookie
+    的时间戳。
+
+
