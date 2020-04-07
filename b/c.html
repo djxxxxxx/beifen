@@ -9,7 +9,7 @@
     <body>
         <script>
             $(function(){
-                var ws = new WebSocket('ws://localhost:8001/b/')
+                var ws = new WebSocket('ws://' + location.host + '/b/')
                 var wd = document.getElementById('show')
                 ws.onmessage = function (e) {
                     $('#show').append(e.data)
@@ -31,7 +31,7 @@
         <input type="text" id="ctt" placeholder="输入消息">
         <button type="submit" id="btn">Send</button>
         <div id='show' style="height: 18em;overflow-x: auto;
-            word-wrap: break-word;margin: 8px 0px;border: 
+            word-wrap: break-word;margin: 8px 0px;border:
             1px solid black;"></div>
     </body>
 </html>
