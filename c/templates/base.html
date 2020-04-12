@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% end %}</title>
+    <link rel="stylesheet" href="{{ static_url('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ static_url('css/base.css') }}">
+    {% block css %}{% end %}
+    {% block js %}{% end %}
+</head>
+<body>
+    <div class="row">
+        <div class="hidden-sx col-sm-2 col-md3"></div>
+        <div class="col-sx-12 col-sm-8 col-md6">
+            <div>
+                <h4><a href="/">Python学习笔记</a></h4>
+                {% if user %}
+                    <a id=lgn href="/logout">退出</a>
+                    <a id=lgn href="/home">{{ user }}</a>
+                {% else %}
+                    <a id=lgn href="/register">注册</a>
+                    <a id=lgn href="/login">登录</a>
+                {% end %}
+            </div>
+            <hr>
+            <div>
+                {% for t in type %}
+                    <a href="/list/{{ t[0] }}"+ t>{{ t[0] }}</a>
+                {% end %}
+            </div>
+            {% block content %}{% end %}
+        </div>
+        <div class="hidden-sx col-sm-2 col-md3"></div>
+    </div>
+</body>
+</html>

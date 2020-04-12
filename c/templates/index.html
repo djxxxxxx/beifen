@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}首页{% end %}
+{% block css %}<link rel="stylesheet" href="{{ static_url('css/index.css') }}">{% end %}
+{% block content %}
+<div class="content">
+    {% for a in article %}
+        <p>
+            <a href="/article/{{ a[0] }}">
+                <span>{{ a[8] }}</span>
+                <span>{{ a[1] }}</span>
+                <span>{{ a[2] }}</span>
+                <span>{{ a[7] }}</span>
+            </a>
+        </p>
+    {% end %}
+</ul>
+</div>
+<hr>
+<div class="bottom">
+    <a href="http://beian.miit.gov.cn/">蒙ICP备20000629号-1</a>
+</div>
+{% end %}

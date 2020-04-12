@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}用户{% end %}
+{% block content %}
+<b>{{ user }}的文章</b>
+<a href="/write">添加</a>
+<div class="content">
+    {% for a in usr_atc %}
+        <p>
+            <a href="/article/{{ a[0] }}">
+                <span>{{ a[8] }}</span>
+                <span>{{ a[1] }}</span>
+                <span>{{ a[2] }}</span>
+                <span>{{ a[7] }}</span>
+            </a>
+        </p>
+    {% end %}
+</div>
+{% end %}

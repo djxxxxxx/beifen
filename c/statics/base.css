@@ -1,0 +1,25 @@
+html, body{
+    background: black;
+    color: white;
+    text-align: center;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+h2{
+    margin: 10px 0;
+}
+div.head{
+    margin: 0 20%;
+    width: 70%;
+}
+div.content{
+    margin: 0 20%;
+    width: 70%;
+}
+div.bottom{
+    margin: 0 20%;
+    width: 70%;
+    text-align: center;
+}

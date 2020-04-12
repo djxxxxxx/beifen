@@ -3,9 +3,14 @@
 <head>
     <title>b</title>
 </head>
-<body style="overflow: auto">
-    {% for ag in data %}
-        <p>{{ ag }}</p>
-    {% end %}
+<body>
+    <div style="overflow:auto;width: 100%;height: 605px;border: solid 1px black">
+        {% for ag in data %}
+            <p>{{ ag }}</p>
+        {% end %}
+    </div>
+    <div style="width: 100%;text-align: center;border: solid 1px black;margin: 6px 0;padding: 3px 0">
+        <a href="http://beian.miit.gov.cn/">蒙ICP备20000629号-1</a>
+    </div>
 </body>
 </html>

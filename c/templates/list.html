@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ atc_tp }}文章{% end %}
+{% block content %}
+<div class="content">
+    {% for a in tp_atc %}
+        <p>
+            <a href="/article/{{ a[0] }}">
+                <span>{{ a[8] }}</span>
+                <span>{{ a[1] }}</span>
+                <span>{{ a[2] }}</span>
+                <span>{{ a[7] }}</span>
+            </a>
+        </p>
+    {% end %}
+</div>
+{% end %}

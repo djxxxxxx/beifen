@@ -53,7 +53,7 @@ class Application(Application):
     def __init__(self, *args, **kwargs):
         super(Application, self).__init__(*args, **kwargs)
         self.dbc = pymysql.connect(
-            host='localhost', user='root', password='123',
+            host='localhost', user='root', password='123456',
             database='itcast', charset='utf8')
         self.db = self.dbc.cursor()
 

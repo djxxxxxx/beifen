@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}注册{% end %}
+{% block content %}
+<div class="frame">
+    <h4>请输入注册信息</h4>
+<form method="post">
+    {% module xsrf_form_html() %}
+    <input type="text" name="name" placeholder="帐号/昵称"><text> *</text><br>
+    <input type="text" name="mobile" placeholder="手机号"><text> *</text><br>
+    <input type="text" name="email" placeholder="电子邮箱"><text> *</text><br>
+    <input type="text" name="passwd" placeholder="密码"><text> *</text><br>
+    <input type="text" name="pwconfirm" placeholder="密码确认"><text> *</text><br>
+    <input type="submit" value="提交">
+</form>
+</div>
+{% end %}
