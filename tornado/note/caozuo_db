@@ -50,7 +50,7 @@ insert into it_house_image(hi_house_id, hi_url)
 
 # update/delete 先写 where 语句以防全改，最好先用where查询
     select * from it_user_info where ui_user_id=1;
-    update ... where ui_user_id=2;
+    delete from it_user_info where ui_user_id=2;
     update it_user_info set ui_area_id=1 where ui_user_id=2;
 
 # group by

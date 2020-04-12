@@ -3,14 +3,12 @@
 {% block content %}
 <div class="content">
     {% for a in tp_atc %}
-        <p>
-            <a href="/article/{{ a[0] }}">
-                <span>{{ a[8] }}</span>
-                <span>{{ a[1] }}</span>
-                <span>{{ a[2] }}</span>
-                <span>{{ a[7] }}</span>
-            </a>
-        </p>
+        <div class="list">
+            <a href="/article/{{ a[0] }}">{{ a[1] }}</a><br>
+            <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[8] }}">{{ a[8] }}</a></td>
+            <span class="discrb">分类：</span><a class="discrb" href="/list/{{ a[2] }}">{{ a[2] }}</a></td>
+            <span class="discrb">时间：{{ a[7] }}</span>
+        </div>
     {% end %}
 </div>
 {% end %}

@@ -104,15 +104,19 @@ class Logout(Base):
         self.redirect("/")
 
 class Home(Base):
-    async def get(self):
+    async def get(self, name):
         user = self.get_current_user()
         sql_type = "select type_name from type"
         self.db.execute(sql_type)
         type = self.db.fetchall()
         sql_uatc = "select * from article where article_user_name=%s"
-        self.db.execute(sql_uatc, user)
+        self.db.execute(sql_uatc, name)
         usr_atc = self.db.fetchall()
-        self.render('home.html', user=user, type=type, usr_atc=usr_atc)
+        if name != user:
+            add = False
+        else:
+            add = True
+        self.render('home.html', user=user, type=type, usr_atc=usr_atc, name=name, add=add)
 
 class Write(Base):
     async def get(self):
@@ -146,7 +150,7 @@ class Write(Base):
         sql = "insert into article(article_title, article_type, article_user_id, article_user_name, article_body) values(%s, %s, %s, %s,%s)"
         self.db.execute(sql, (title, atype, uid, user, article))
         self.dbc.commit()
-        self.render("home.html", user=user, type=type)
+        self.redirect("/home")
 
 class Article(Base):
     async def get(self, atc_id):

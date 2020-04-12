@@ -40,7 +40,7 @@ def make_app():
                 (r'/register', Register),
                 (r'/login', Login),
                 (r'/logout', Logout),
-                (r'/home', Home),
+                (r'/home/([^/]+)', Home),
                 (r'/write', Write),
                 (r'/article/([^/]+)', Article),
                 (r'/text', Test)

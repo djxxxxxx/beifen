@@ -9,12 +9,17 @@ div{
     padding: 2px 0;
 }
 div.frame{
-    width: 100%;
     margin: 6px 0;
     padding: 6px 0;
     background: #555;
     color: #eee;
     text-align: center;
+}
+div.list{
+    margin: 4px 0;
+    padding: 4px;
+    background: #555;
+    border-radius: 2px;
 }
 hr{
     border: 0;
@@ -24,12 +29,44 @@ hr{
     padding: 0;
 }
 a{
+    color: #eee;
+    text-decoration: none;
+    margin: 2px 8px 2px 0px;
+    padding: 0 4px 0 0;
+}
+a:hover{
+    color:#ddd;
+    text-orientation: none;
+}
+a.tag{
     color: #222;
     text-decoration: none;
     background: #bbb;
     border-radius: 2px;
     margin: 2px 8px 2px 0px;
     padding: 0 4px;
+}
+a.discrb{
+    color: #aaa;
+    text-decoration: none;
+    margin: 2px 8px 2px 0px;
+    padding: 0 4px 0 0;
+    font-size: 0.9em;
+}
+b{
+    display: inline;
+}
+span.discrb{
+    color: #aaa;
+    font-size: 0.9em;
+}
+table{
+    margin: 6px 0px;
+    border-collapse:collapse;
+}
+tr,th,td{
+    border-bottom:1px dashed #999;
+    padding: 10px 4px;
 }
 p{
     margin: 0;
@@ -56,6 +93,16 @@ input{
     color: #222;
     border: none;
     margin: 6px 2px;
+    border-radius: 2px;
+}
+form{
+    float: right;
+    margin: 0 0 6px 0;
+    display: inline;
+    font-size: 0.8em;
+}
+input.search{
+    margin: 0 0 6px 0;
 }
 h4{
     display: inline;
@@ -65,4 +112,6 @@ h4{
 #lgn{
     float: right;
     font-size: 0.8em;
+    margin: 2px 0px 2px 8px;
+    padding: 0 4px;
 }
