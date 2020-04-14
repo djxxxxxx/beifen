@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block title %}{{ atc_tp }}文章{% end %}
 {% block content %}
+<b>{{ atc_tp }}相关文章</b>
 <div class="content">
     {% for a in tp_atc %}
         <div class="list">
-            <a href="/article/{{ a[0] }}">{{ a[1] }}</a><br>
-            <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[8] }}">{{ a[8] }}</a></td>
+            <a href="/article/{{ a[0] }}">{{ a[1] }}</a>{% if user=="dujiaxing" %}<a class="del" href="/del/{{ a[0] }}">删除</a>{% end %}<br>
+            <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[4] }}">{{ a[4] }}</a></td>
             <span class="discrb">分类：</span><a class="discrb" href="/list/{{ a[2] }}">{{ a[2] }}</a></td>
             <span class="discrb">时间：{{ a[7] }}</span>
         </div>

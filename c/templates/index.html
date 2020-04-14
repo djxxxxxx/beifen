@@ -1,25 +1,19 @@
 {% extends "base.html" %}
 {% block title %}首页{% end %}
-{% block css %}<link rel="stylesheet" href="{{ static_url('css/index.css') }}">{% end %}
 {% block content %}
 <b>全部文章</b>
-<form method="post">
-    {% module xsrf_form_html() %}
-    <input class="search" type="text" name="search">
-    <input class="search" type="submit" value="搜索">
-</form>
 <div class="content">
     {% for a in article %}
         <div class="list">
-            <a href="/article/{{ a[0] }}">{{ a[1] }}</a><br>
-            <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[8] }}">{{ a[8] }}</a></td>
+            <a href="/article/{{ a[0] }}">{{ a[1] }}</a>{% if user=="dujiaxing" %}<a class="del" href="/del/{{ a[0] }}">删除</a>{% end %}<br>
+            <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[4] }}">{{ a[4] }}</a></td>
             <span class="discrb">分类：</span><a class="discrb" href="/list/{{ a[2] }}">{{ a[2] }}</a></td>
             <span class="discrb">时间：{{ a[7] }}</span>
         </div>
     {% end %}
 </div>
-<hr>
 <div class="bottom">
-    <a href="http://beian.miit.gov.cn/">蒙ICP备20000629号-1</a>
+    <hr>
+    <a class="discrb" href="http://beian.miit.gov.cn/">蒙ICP备20000629号-1</a>
 </div>
 {% end %}

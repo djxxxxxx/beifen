@@ -43,14 +43,18 @@ def make_app():
                 (r'/home/([^/]+)', Home),
                 (r'/write', Write),
                 (r'/article/([^/]+)', Article),
-                (r'/text', Test)
+                (r'/msg', Msg),
+                (r'/search', Search),
+                (r'/del/(.*)/(.*)', Del),
+                (r'/ban/([^/]+)', Ban),
+                (r'/retype/([^/]+)', Retype)
             ],  **settings
         )
 
 if __name__ == "__main__":
     parse_command_line()
     app = make_app()
-    server = HTTPServer(app)
+    server = HTTPServer(app, xheaders=True)
     server.bind(options.port)
     server.start()
     IOLoop.current().start()

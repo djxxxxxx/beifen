@@ -1,18 +1,67 @@
 {% extends "base.html" %}
 {% block title %}用户{% end %}
 {% block content %}
-<b>{{ name }}的文章</b>
-{% if add %}
-    <a href="/write">添加</a>
-{% end %}
+{% if user=="dujiaxing" and name=="dujiaxing" %}
 <div class="content">
-    {% for a in usr_atc %}
-        <div class="list">
-            <a href="/article/{{ a[0] }}">{{ a[1] }}</a><br>
-            <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[8] }}">{{ a[8] }}</a></td>
-            <span class="discrb">分类：</span><a class="discrb" href="/list/{{ a[2] }}">{{ a[2] }}</a></td>
-            <span class="discrb">时间：{{ a[7] }}</span>
-        </div>
-    {% end %}
+    <div class="right">
+        <table>
+            <tr>
+                <th>帐号</th>
+                <th>ip地址</th>
+                <th>状态</th>
+                <th>创建时间</th>
+            </tr>
+            {% for u in user_li %}
+                <tr>
+                    <td><a class="discrb" href="/home/{{ u[0] }}">{{ u[0] }}</a></td>
+                    <td>{{ u[1] }}</td>
+                    <td>{{ u[2] }}</td>
+                    <td>{{ u[3] }}</td>
+                </tr>
+            {% end %}
+        </table>
+    </div>
+    <div class="right">
+        <table>
+            <tr>
+                <th>分类</th>
+                <th>创建时间</th>
+                <th>修改</th>
+            </tr>
+            {% for t in type_li %}
+                <tr>
+                    <td>{{ t[0] }}</td>
+                    <td>{{ t[1] }}</td>
+                    <td>
+                        <form class="small" method="post" action="/retype/{{ t[0] }}">
+                            {% module xsrf_form_html() %}
+                            <input id="type" type="text" name="retype">
+                            <input class="small" type="submit" value="修改">
+                        </form>
+                    </td>
+                </tr>
+            {% end %}
+        </table>
+    </div>
 </div>
+{% else %}
+    <b>{{ name }}的文章</b>
+    {% if add %}
+        <a class="tag" href="/write">添加</a>
+    {% end %}
+    {% if user == "dujiaxing" %}
+        <a class="tag" href="/ban/{{ name }}">BAN</a>
+    {% end %}
+    <div class="content">
+        {% for a in usr_atc %}
+            <div class="list">
+                <a href="/article/{{ a[0] }}">{{ a[1] }}</a>
+                {% if name==user or user=="dujiaxing" %}<a class="del" href="/del/{{ a[0] }}/{{ name }}">删除</a>{% end %}<br>
+                <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[4] }}">{{ a[4] }}</a></td>
+                <span class="discrb">分类：</span><a class="discrb" href="/list/{{ a[2] }}">{{ a[2] }}</a></td>
+                <span class="discrb">时间：{{ a[7] }}</span>
+            </div>
+        {% end %}
+    </div>
+{% end %}
 {% end %}

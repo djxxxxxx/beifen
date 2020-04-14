@@ -10,9 +10,14 @@ create table user(
     user_passwd varchar(128) not null,
     user_mobile char(11) not null,
     user_email varchar(128) not null,
+    user_ip char(16) not null,
+    user_status boolean default 1,
     user_ctime datetime not null default current_timestamp,
     primary key (user_id),
-    unique (user_name)
+    unique (user_name),
+    unique (user_mobile),
+    unique (user_email),
+    unique (user_ip)
 )engine=InnoDB default charset=utf8;
 
 create table type(
@@ -31,7 +36,7 @@ create table article(
     article_user_id bigint unsigned not null,
     article_user_name varchar(64) not null,
     article_body text not null,
-    article_rdnum bigint not null,
+    article_rdnum bigint not null default 0,
     article_ctime datetime not null default current_timestamp,
     article_utime datetime not null default current_timestamp on update current_timestamp,
     primary key (article_id),
@@ -46,3 +51,4 @@ create table comments(
     primary key (comments_id),
     constraint foreign key (comments_user_id) references user(user_id)
 )engine=InnoDB default charset=utf8;
+

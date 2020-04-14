@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block title %}文章{% end %}
 {% block content %}
-{{ article }}
+<div class="content">
+    <b>{{ article[1] }}</b><br>
+    <span>作者：{{ article[4] }}</span><br>
+    <span>分类：{{ article[2] }}</span><br>
+    <span>更新日期：{{ article[8] }}</span>
+    <pre>{{ article[5] }}</pre>
+</div>
 {% end %}

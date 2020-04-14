@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ atc_tp }}搜索结果{% end %}
+{% block content %}
+<div class="content">
+    {% for a in srch_atc %}
+        <div class="list">
+            <a href="/article/{{ a[0] }}">{{ a[1] }}</a><br>
+            <span class="discrb">作者：</span><a class="discrb" href="/home/{{ a[8] }}">{{ a[8] }}</a></td>
+            <span class="discrb">分类：</span><a class="discrb" href="/list/{{ a[2] }}">{{ a[2] }}</a></td>
+            <span class="discrb">时间：{{ a[7] }}</span>
+        </div>
+    {% end %}
+</div>
+{% end %}

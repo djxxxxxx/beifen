@@ -3,14 +3,29 @@
 {% block content %}
 <div class="frame">
     <h4>请输入注册信息</h4>
-<form method="post">
-    {% module xsrf_form_html() %}
-    <input type="text" name="name" placeholder="帐号/昵称"><text> *</text><br>
-    <input type="text" name="mobile" placeholder="手机号"><text> *</text><br>
-    <input type="text" name="email" placeholder="电子邮箱"><text> *</text><br>
-    <input type="text" name="passwd" placeholder="密码"><text> *</text><br>
-    <input type="text" name="pwconfirm" placeholder="密码确认"><text> *</text><br>
-    <input type="submit" value="提交">
-</form>
+    <form method="post">
+        {% module xsrf_form_html() %}
+        <input type="text" name="name" placeholder="帐号/昵称 *"><br>
+        <input type="text" name="mobile" placeholder="手机号 *"><br>
+        <input type="text" name="email" placeholder="电子邮箱 *"><br>
+        <input type="text" name="passwd" id="pw1" placeholder="密码 *"><br>
+        <input type="text" name="pwconfirm" id="pw2" placeholder="密码确认 *" onkeyup="validate()"><br>
+        <span id="tishi"></span><br>
+        <input type="submit" id="submit" value="提交">
+    </form>
 </div>
+<script>
+function validate() {
+var pw1 = document.getElementById("pw1").value;
+var pw2 = document.getElementById("pw2").value;
+if(pw1 == pw2) {
+document.getElementById("tishi").innerHTML="<font color='#eee'>两次密码相同</font>";
+document.getElementById("submit").disabled = false;
+}
+else {
+document.getElementById("tishi").innerHTML="<font color='#eee'>两次密码不相同</font>";
+document.getElementById("submit").disabled = true;
+}
+}
+</script>
 {% end %}
