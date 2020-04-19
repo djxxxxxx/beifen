@@ -1,0 +1,33 @@
+div.chat{
+    background: #EDBF85;
+    margin: 15px 6px 15px 6px;
+    padding: 4px;
+    border-radius: 6px;
+    box-shadow:0 0 9px 3px #bbb;
+}
+div.cur-user {
+    padding: 0px 4px 0px 4px;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #FF5449;
+}
+text.cur-user {
+    color: #50A2A7;
+}
+div.t-box {
+    height: 300px;
+    word-wrap: break-word;
+    overflow-y: auto;
+    padding: 0px 4px;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #FF5449;
+
+}
+input.i-box {
+    width: 260px;
+}
+div.i-area {
+    margin-top: 5px;
+    text-align: center;
+}

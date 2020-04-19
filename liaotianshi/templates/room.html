@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}聊天室{% end %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ static_url('css/room.css') }}">
+{%end%}
+{% block js %}
+<script type="text/javascript" src="{{ static_url('js/jquery3.js') }}"></script>
+<script type="text/javascript" src="{{ static_url('js/room.js') }}"></script>
+{% end %}
+{% block content %}
+<div class="chat">
+	<div class="cur-user">
+        <text class="cur-user">当前用户：{{ username }}</text>
+    </div>
+	<div class="t-box" id="t-box"></div>
+	<div class="i-area">
+		<input type="hidden" value="{{ username }}" id="user">
+		<input class="i-box" id="i-box" type="text" name="i-box" onkeyup="value=value.replace(/\s/g,'')" maxlength=60">
+		<button type="submit" id="btn">发送</button>
+	</div>
+</div>
+
+{% end %}

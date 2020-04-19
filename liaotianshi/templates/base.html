@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+    <title>{% block title %}{% end %}</title>
+	<title>开始</title>
+	<link rel="stylesheet" type="text/css" href="{{ static_url('css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ static_url('css/base.css') }}">
+	{% block css %}{% end %}
+	{% block js %}{% end %}
+</head>
+<body>
+	<div class="row">
+		<div class="hidden-sx col-sm-2 col-md-3"></div>
+		<div class="col-sx-12 col-sm-8 col-md-6">
+			<div class="head">
+                <a class="head" href="/">
+                    <text class="a">Cock</text><text class="b">tail</text><text class="c">Bar</text>
+                </a>
+                <a class="head" href="">动态</a>
+            </div>
+			{% block content %}{% end %}
+            <div class="footer">
+                <p class="footer">蒙ICP备20000629号-1 Copyright©2020 cocktail8.com 版权所有</p>
+                <p class="footer">联系方式: djxmsg@163.com</p>
+            </div>
+		</div>
+		<div class="hidden-sx col-sm-2 col-md-3"></div>
+	</div>
+</body>
+</html>

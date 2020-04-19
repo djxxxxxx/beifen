@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}开始{% end %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ static_url('css/index.css') }}">
+{% end %}
+{% block content %}
+<div class="index0">
+	<h4>聊天室</h4>
+	<div class="login">
+		<form method="post">
+			<input type="text" placeholder="输入昵称进入(最多7个字)" onkeyup="value=value.replace(/\s/g,'')" maxlength=7" name="username">
+			<button type="submit">进入</button>
+		</form>
+	</div>
+</div>
+<div class="index1">
+    <h4>未完成</h4>
+    <div class="hotTopic">
+        <p><a href="">asd</a> <a href="">asd</a></p>
+        <p><a href="">asd</a> <a href="">asd</a></p>
+        <p><a href="">asd</a> <a href="">asd</a></p>
+    </div>
+</div>
+<div class="index2">
+    <h4>未完成</h4>
+
+</div>
+{% end %}

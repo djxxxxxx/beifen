@@ -1,0 +1,32 @@
+div.index0 {
+    background: #5FD69F;
+    margin: 15px 6px;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow:0 0 9px 3px #bbb;
+}
+div.index1 {
+    background: #F9B87A;
+    margin: 15px 6px;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow:0 0 9px 3px #bbb;
+}
+div.index2 {
+    background: #7FDDFF;
+    height: 260px;
+    margin: 15px 6px;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow:0 0 9px 3px #bbb;
+}
+h4 {
+    text-align: center;
+    color: #666;
+    text-shadow:0 0 2px #333;
+    margin: 0;
+    padding-bottom: 4px;
+}
+div.login {
+    text-align: center;
+}
