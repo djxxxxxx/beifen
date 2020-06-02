@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Front</title>
+  </head>
+  <body>
+    <form  method="post">
+      <input type="text" name="name" value="">
+      <input type="text" name="passwd" value="">
+      <input type="submit" name="" value="Send">
+    </form>
+    {% for name in names %}
+      <p>{{ name[0] }}</p>
+    {% end %}
+  </body>
+</html>
