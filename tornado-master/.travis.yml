@@ -1,0 +1,47 @@
+# https://travis-ci.org/tornadoweb/tornado
+
+dist: xenial
+language: python
+addons:
+  apt:
+    packages:
+      - libgnutls-dev
+
+# For a list of available versions, run
+#     aws s3 ls s3://travis-python-archives/binaries/ubuntu/16.04/x86_64/
+jobs:
+  fast_finish: true
+  include:
+    # 3.5.2 is interesting because it's the version in ubuntu 16.04, and due to python's
+    # "provisional feature" rules there are significant differences between patch
+    # versions for asyncio and typing.
+    - python: 3.5.2
+      # Twisted doesn't install on python 3.5.2, so don't run the "full" tests.
+      env: TOX_ENV=py35
+    - python: '3.5'
+      env: TOX_ENV=py35-full
+    - python: '3.6'
+      env: TOX_ENV=py36-full
+    - python: '3.7'
+      env: TOX_ENV=py37-full
+    - python: '3.8'
+      env: TOX_ENV=py38-full
+    - python: pypy3.5-5.10.1
+      # Pypy is a lot slower due to jit warmup costs, so don't run the "full"
+      # test config there.
+      env: TOX_ENV=pypy3
+    - python: nightly
+      env: TOX_ENV=py3-full
+      # Docs and lint python versions must be synced with those in tox.ini
+    - python: '3.8'
+      env: TOX_ENV=docs
+    - python: '3.8'
+      env: TOX_ENV=lint
+
+install:
+    - travis_retry pip install tox tox-venv
+    - python -VV
+    - curl-config --version; pip freeze
+
+script:
+    - "tox -e $TOX_ENV -- $TOX_ARGS"

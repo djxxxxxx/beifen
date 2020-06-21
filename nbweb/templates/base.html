@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{% block title %}{% end %}</title>
+    <link rel="stylesheet" href="{{ static_url('css/base.css') }}">
+    {% block css %}{% end %}
+    {% block js %}{% end %}
+  </head>
+  <body>
+    <div class="head">
+      <text class="logo">NOTE</text>
+      <a href="#">备忘</a>
+      <a href="#">笔记</a>
+      {% if not login %}
+        <a class="right" href="#">登录</a>
+        <a class="right" href="#">注册</a>
+      {% else %}
+        <a class="right" href="#">我的</a>
+        <a class="right" href="#">退出</a>
+      {% end %}
+    </div>
+    <div class="content">
+      {% block content %}{% end %}
+    </div>
+    {% block foot %}{% end %}
+  </body>
+</html>
