@@ -24,9 +24,7 @@ text.logo{
 }
 a{
   padding: 0 4px;
-  color: #111;
-  background: #bbb;
-  border-radius: 4px;
+  color: #ddd;
   text-decoration: none;
 }
 a.right{

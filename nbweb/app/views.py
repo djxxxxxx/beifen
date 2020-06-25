@@ -28,6 +28,3 @@ class Beiwang(BaseHandler):
     async def post(self):
         await self.execute('')
         self.redirect('/')
-
-class Zhuce(BaseHandler):
-    async def get(self):
