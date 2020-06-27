@@ -4,26 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{% block title %}{% end %}</title>
+    <link rel="stylesheet" href="{{ static_url('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ static_url('css/base.css') }}">
+
     {% block css %}{% end %}
     {% block js %}{% end %}
   </head>
   <body>
-    <div class="head">
-      <text class="logo">NOTE</text>
-      <a href="#">备忘</a>
-      <a href="#">笔记</a>
-      {% if not login %}
-        <a class="right" href="#">登录</a>
-        <a class="right" href="#">注册</a>
-      {% else %}
-        <a class="right" href="#">我的</a>
-        <a class="right" href="#">退出</a>
-      {% end %}
+    <div class="row">
+      <div class="col-sx-12 col-sm-12 col-md-12">
+        <div class="head">
+          <a class="logo" href="#">NOTE</a>
+          <a href="#">DISCUZ</a>
+          {% if not login %}
+            <a class="right" href="#">登录</a>
+            <a class="right" href="#">注册</a>
+          {% else %}
+            <a class="right" href="#">我的</a>
+            <a class="right" href="#">退出</a>
+          {% end %}
+        </div>
+      </div>
     </div>
-    <div class="content">
-      {% block content %}{% end %}
+    <div class="row">
+      <div class="col-sx-12 col-sm-12 col-md-6">
+        {% block note %}{% end %}
+      </div>
+      <div class="col-sx-12 col-sm-12 col-md-6">
+        {% block blog %}{% end %}
+      </div>
     </div>
-    {% block foot %}{% end %}
+
+
   </body>
 </html>

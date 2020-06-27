@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}个人备忘录，博客，技术交流{% end %}
+{% block css %}
+<link rel="stylesheet" href="{{ static_url('css/index.css') }}">
+{% end %}
+{% block js %}
+
+{% end %}
+{% block note %}
+<form method="post">
+  <div class="note" contenteditable="true">
+    {{ note }}
+  </div>
+  <input class="note" type="submit" name="" value="保存">
+</form>
+{% end %}
+{% block blog %}
+
+{% end %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}个人备忘录，博客，技术交流{% end %}
+{% block note %}
+<div class="register">
+  <form method="post">
+    {% module xsrf_form_html %}
+    <input type="text" name="uname" value="">
+    <input type="text" name="upasswd" value="">
+    <input type="submit" value="确定">
+  </form>
+</div>
+{% end %}

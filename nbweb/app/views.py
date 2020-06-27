@@ -16,14 +16,11 @@ class BaseHandler(tornado.web.RequestHandler):
         return  await self.query('select usr_id from users where usr_name=%s', user_name)
 
 
-class Beiwang(BaseHandler):
+class Index(BaseHandler):
     async def get(self):
-        if self.user_id:
-            login = self.user_id
-        else:
-            login = 0
-        neirong = self.query('select * from notes where nt_usr_id=%s', login)
-        self.render('beiwang.html', login=login, neirong=neirong)
+        login = 1
+        note = ['abc路其袖子','def加油干','ghi绿水青山']
+        self.render('index.html',login=login, note=note)
 
     async def post(self):
         await self.execute('')

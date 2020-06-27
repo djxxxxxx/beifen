@@ -1,35 +1,31 @@
 html, body{
-  margin: 1px 2px;
-  padding: 1px 2px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  margin: 0 2px;
+  padding: 0 1px;
   background: #333;
   color: #eee;
+  font-family: regular;
 }
 div{
   margin: 2px 0;
-  padding: 2px 0;
+  border-radius: 4px;
 }
 div.head{
-  height: 20px;
-  display: inline;
-}
-div.content{
-  border-top: 1px solid #bbb;
-  border-bottom: 1px solid #bbb;
-}
-text.logo{
-  color: orange;
-  margin-right: 12px;
+  background: #3b6978;
 }
 a{
-  padding: 0 4px;
+  padding: 0 2px;
   color: #ddd;
   text-decoration: none;
 }
+a.logo{
+  margin: 0 2px;
+  color: orange;
+  text-decoration: none;
+  display: inline;
+}
 a.right{
   float: right;
-  font-size: 0.8em;
-  margin: 2px 0 0 6px;
-  padding: 0 2px;
+  font-size: 0.9em;
+  margin: 2px 4px;
+  padding: 0;
 }

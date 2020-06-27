@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{% block title %}{% end %}</title>
+    <link rel="stylesheet" href="{{ static_url('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ static_url('css/base.css') }}">
+    <link rel="stylesheet" href="{{ static_url('css/branch.css') }}">
+    {% block js %}{% end %}
+  </head>
+  <body>
+    <div class="row">
+      <div class="hidden-sx col-sm-2 col-md-3"></div>
+      <div class="col-sx-12 col-sm-8 col-md-6">
+        <div class="main">
+          <div class="head">
+            <a href="#">NOTE</a>
+            {% if uid %}
+              <a href="#">我的</a>
+              <a href="#">退出</a>
+            {% else %}
+              <a href="#">注册</a>
+              <a href="#">登录</a>
+            {% end %}
+          </div>
+          {% block note %}{% end %}
+        </div>
+      </div>
+      <div class="hidden-sx col-sm-2 col-md-3"></div>
+    </div>
+  </body>
+</html>

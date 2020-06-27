@@ -21,6 +21,11 @@ class Application(tornado.web.Application):
         self.db = db
         handlers = [
             (r'/', Index),
+            (r'/blog/', Blog),
+            (r'/home/', Home),
+            (r'login/', Login),
+            (r'register/', Register),
+            (r'gly/', Gly),
         ]
         super(Application, self).__init__(handlers, **settings)
 
