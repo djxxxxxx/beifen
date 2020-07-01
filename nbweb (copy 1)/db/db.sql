@@ -23,9 +23,10 @@ create table groups(
 
 create table notes(
   nid serial primary key,
-  nuid bigint not null references users(uid),
+  ntitle varchar(128) not null,
+  nuname varchar(20) not null references users(uname),
   ntype varchar(20) not null,
-  ngroup varchar(50) not null,
+  ngroup varchar(50) null,
   ntext text not null,
   nctime timestamp not null,
   nutime timestamp not null

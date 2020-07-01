@@ -3,10 +3,10 @@
 {% block note %}
 <div class="register">
   <form method="post">
-    {% module xsrf_form_html %}
+    {% module xsrf_form_html() %}
     <input type="text" name="uname" value="">
-    <input type="text" name="upasswd" value="">
-    <input type="submit" value="确定">
+    <input type="text" name="upwd" value="">
+    <input type="submit" value="注册">
   </form>
 </div>
 {% end %}

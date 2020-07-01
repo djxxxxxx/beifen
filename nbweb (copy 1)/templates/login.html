@@ -2,6 +2,12 @@
 {% block title %}个人备忘录，博客，技术交流{% end %}
 {% block note %}
 <div class="login">
-
+  <p>{{ error }}</p>
+  <form method="post">
+    {% module xsrf_form_html() %}
+    <input type="text" name="uname" value="">
+    <input type="text" name="upwd" value="">
+    <input type="submit" name="" value="登录">
+  </form>
 </div>
 {% end %}

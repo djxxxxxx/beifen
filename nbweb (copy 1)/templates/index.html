@@ -2,6 +2,13 @@
 {% block title %}个人备忘录，博客，技术交流{% end %}
 {% block note %}
 <div class="index">
-
+  {% for note in notes %}
+    <div class="each">
+      <a class="ntitle" href="/note/{{ note[0] }}">{{ note[1] }}</a><br>
+      <a class="each" href="/home/{{ note[2] }}">{{ note[2] }}</a>
+      <text class="each">{{ note[3] }}</text>
+      <text class="each">{{ locale.format_date(note[6], full_format=True, shorter=True)   }}</text>
+    </div>
+  {% end %}
 </div>
 {% end %}

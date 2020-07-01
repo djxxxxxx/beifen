@@ -1,5 +1,5 @@
-div.blog{
-  
+div.note{
+  padding: 4px;
 }
 div.gly{
 
@@ -9,6 +9,19 @@ div.home{
 }
 div.index{
 
+}
+div.each{
+  background: #777;
+  margin: 2px;
+  padding: 2px;
+}
+a.ntitle{
+}
+a.each{
+  color: #bbb;
+}
+text.each{
+  color: #bbb;
 }
 div.login{
 

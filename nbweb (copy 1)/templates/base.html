@@ -15,16 +15,18 @@
       <div class="col-sx-12 col-sm-8 col-md-6">
         <div class="main">
           <div class="head">
-            <a href="#">NOTE</a>
-            {% if uid %}
-              <a href="#">我的</a>
-              <a href="#">退出</a>
+            <a href="/">NOTE</a>
+            {% if uname %}
+              <a href="/home/">我的</a>
+              <a href="/logout">退出</a>
             {% else %}
-              <a href="#">注册</a>
-              <a href="#">登录</a>
+              <a href="/register/">注册</a>
+              <a href="/login/">登录</a>
             {% end %}
           </div>
-          {% block note %}{% end %}
+          <div class="content">
+            {% block note %}{% end %}
+          </div>
         </div>
       </div>
       <div class="hidden-sx col-sm-2 col-md-3"></div>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}个人备忘录，博客，技术交流{% end %}
+{% block note %}
+<div class="write">
+  <b>{{ note[1] }}</b><br>
+  <span>{{ note[2] }}</span>
+  <span>{{ note[3] }}</span>
+  <span>{{ locale.format_date(note[6], full_format=True, shorter=True) }}</span><br>
+  <div class="one">
+    {{ note[5] }}
+  </div>
+</div>
+{% end %}
