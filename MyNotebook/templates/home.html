@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}个人备忘录，博客，技术交流{% end %}
+{% block note %}
+<div class="home">
+  <text>{{ notes[0][2] if uname!=notes[0][2] else "我" }}的主页</text>
+  {% if uname==notes[0][2] %}
+    <a href="/write">新建笔记</a>
+    <a href="#">个人信息</a>
+    <a href="#">创建组</a>
+  {% else %}
+    <a href="#">加好友</a>
+  {% end %}
+  {% for note in notes %}
+    <div class="each">
+      <a class="ntitle" href="/note/{{ note[0] }}">{{ note[1] }}</a><br>
+      <text class="each" href="#">{{ note[2] }}</text>
+      <text class="each" href="#">{{ note[3] }}</text>
+      <text class="each">{{ locale.format_date(note[6], full_format=True, shorter=False) }}</text>
+    </div>
+  {% end %}
+</div>
+{% end %}

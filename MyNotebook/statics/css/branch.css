@@ -1,0 +1,58 @@
+div.note{
+  padding: 4px;
+}
+pre.one{
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+div.gly{
+}
+div.home{
+}
+text{
+  margin: 0 4px;
+}
+div.write{
+  padding: 4px;
+}
+input.wrt{
+  margin: 4px 0;
+  padding: 0 4px;
+  width: 100%;
+  background: #ccc;
+  border: none;
+}
+textarea{
+  width: 100%;
+  margin: 4px 0;
+  padding: 4px;
+  height: 360px;
+  background: #ccc;
+  border: none;
+}
+div.index{
+}
+div.each{
+  background: #777;
+  margin: 2px;
+  padding: 2px;
+  overflow: hidden;
+}
+a.ntitle{
+  color: #eee;
+}
+a.each{
+  color: #bbb;
+}
+text.each{
+  color: #bbb;
+}
+div.login{
+  text-align: center;
+}
+div.register{
+  text-align: center;
+}

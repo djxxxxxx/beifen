@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}个人备忘录，博客，技术交流{% end %}
+{% block note %}
+<div class="note">
+  <b>标题：{{ note[1] }}</b><br>
+  <span>作者：{{ note[2] }}</span><br>
+  <span>分类：{{ note[3] }}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>组：{{ note[4] }}</span><br>
+  <span>更新时间：{{ locale.format_date(note[6], full_format=True, shorter=False) }}</span><br>
+  <pre class="one">
+    {{ note[5] }}
+  </pre>
+  {% if uname==note[2] %}
+    <a href="/write?nid={{ note[0] }}">编辑</a>
+    <a href="/delete">删除</a>
+  {% end %}
+</div>
+{% end %}

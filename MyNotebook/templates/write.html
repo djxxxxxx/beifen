@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}个人备忘录，博客，技术交流{% end %}
+{% block note %}
+<div class="write">
+  <form class="write" action="/write?nid={{ note[0] if note else '' }}" method="post">
+    {% module xsrf_form_html() %}
+    <input class="wrt" type="text" name="title" placeholder="标题" value="{{ note[1] if note else '' }}">
+    <input class="wrt" type="text" name="type" placeholder="分类" value="{{ note[3] if note else '' }}">
+    <input class="wrt" type="text" name="group" placeholder="组" value="{{ note[4] if note else '' }}">
+    <textarea class="wrt"  name="text">{{ note[5] if note else '' }}</textarea>
+    <input class="wrt" type="submit" value="保存">
+  </form>
+</div>
+{% end %}
